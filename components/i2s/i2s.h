@@ -1,8 +1,8 @@
 #pragma once
 
 #include <vector>
-//#include <driver/i2s.h>
-#include <driver/i2s_pdm.h>
+#include <driver/i2s.h>
+//#include <driver/i2s_pdm.h>
 #include "esphome/core/defines.h"
 #include "esphome/core/component.h"
 #include "esphome/core/hal.h"
