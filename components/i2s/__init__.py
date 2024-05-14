@@ -59,7 +59,8 @@ async def to_code(config):
     await cg.register_component(var, config)
     ws_pin = await cg.gpio_pin_expression(config[CONF_WS_PIN])
     cg.add(var.set_ws_pin(ws_pin))
-    bck_pin = await cg.gpio_pin_expression(config[CONF_BCK_PIN])
+    if CONF_BCK_PIN in config:
+        bck_pin = await cg.gpio_pin_expression(config[CONF_BCK_PIN])
     cg.add(var.set_bck_pin(bck_pin))
     if CONF_DIN_PIN in config:
         din_pin = await cg.gpio_pin_expression(config[CONF_DIN_PIN])
