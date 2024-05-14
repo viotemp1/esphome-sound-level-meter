@@ -166,6 +166,7 @@ void I2SComponent::setup() {
     this->mark_failed();
     return;
   }
+  i2s_set_clk(i2s_port_t(this->port_num_), this->sample_rate_, I2S_BITS_PER_SAMPLE_16BIT, I2S_CHANNEL_MONO);
 }
 }  // namespace i2s
 }  // namespace esphome
