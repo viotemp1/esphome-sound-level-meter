@@ -132,7 +132,7 @@ void I2SComponent::setup() {
 
   ESP_LOGCONFIG(TAG, "Setting up I2S %u ...", this->port_num_);
 
-  i2s_config_t i2s_config = {.mode = i2s_mode_t(I2S_MODE_MASTER | I2S_MODE_RX),
+  i2s_config_t i2s_config = {.mode = i2s_mode_t(I2S_MODE_MASTER | I2S_MODE_RX | I2S_MODE_PDM),
                              .sample_rate = this->sample_rate_,
                              .bits_per_sample = i2s_bits_per_sample_t(this->bits_per_sample_),
                              .channel_format = this->channel_,
@@ -148,7 +148,7 @@ void I2SComponent::setup() {
 
   i2s_pin_config_t i2s_pin_config = {
       .mck_io_num = I2S_PIN_NO_CHANGE,
-      .bck_io_num = I2S_PIN_NO_CHANGE, //this->bck_pin_->get_pin()
+      .bck_io_num = this->bck_pin_ != nullptr ? this->bck_pin_->get_pin() : I2S_PIN_NO_CHANGE, //this->bck_pin_->get_pin() I2S_PIN_NO_CHANGE
       .ws_io_num = this->ws_pin_->get_pin(),
       .data_out_num = this->dout_pin_ != nullptr ? this->dout_pin_->get_pin() : I2S_PIN_NO_CHANGE,
       .data_in_num = this->din_pin_ != nullptr ? this->din_pin_->get_pin() : I2S_PIN_NO_CHANGE};
