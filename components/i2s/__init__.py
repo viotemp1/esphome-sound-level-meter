@@ -61,7 +61,7 @@ async def to_code(config):
     cg.add(var.set_ws_pin(ws_pin))
     if CONF_BCK_PIN in config:
         bck_pin = await cg.gpio_pin_expression(config[CONF_BCK_PIN])
-    cg.add(var.set_bck_pin(bck_pin))
+        cg.add(var.set_bck_pin(bck_pin))
     if CONF_DIN_PIN in config:
         din_pin = await cg.gpio_pin_expression(config[CONF_DIN_PIN])
         cg.add(var.set_din_pin(din_pin))
