@@ -36,7 +36,7 @@ CONFIG_SCHEMA = cv.All(
         {
             cv.GenerateID(): cv.declare_id(I2SComponent),
             cv.Required(CONF_WS_PIN): pins.internal_gpio_output_pin_schema,
-            cv.Required(CONF_BCK_PIN): pins.internal_gpio_output_pin_schema,
+            cv.Optional(CONF_BCK_PIN): pins.internal_gpio_output_pin_schema,
             cv.Optional(CONF_DIN_PIN): pins.internal_gpio_input_pin_schema,
             cv.Optional(CONF_DOUT_PIN): pins.internal_gpio_output_pin_schema,
             cv.Optional(CONF_SAMPLE_RATE, 48000): cv.positive_not_null_int,
