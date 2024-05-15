@@ -53,6 +53,7 @@ CONF_TASK_CORE = "task_core"
 CONF_MIC_SENSITIVITY = "mic_sensitivity"
 CONF_MIC_SENSITIVITY_REF = "mic_sensitivity_ref"
 CONF_OFFSET = "offset"
+CONF_MULTIPLIER = "multiplier"
 CONF_IS_ON = "is_on"
 
 
@@ -133,6 +134,7 @@ CONFIG_SCHEMA = (
             cv.Optional(CONF_MIC_SENSITIVITY): cv.decibel,
             cv.Optional(CONF_MIC_SENSITIVITY_REF): cv.decibel,
             cv.Optional(CONF_OFFSET): cv.decibel,
+            cv.Optional(CONF_MULTIPLIER): cv.multiplier,
             cv.Required(CONF_GROUPS): [CONFIG_GROUP_SCHEMA]
         }
     )
@@ -186,6 +188,8 @@ async def to_code(config):
         cg.add(var.set_mic_sensitivity_ref(config[CONF_MIC_SENSITIVITY_REF]))
     if CONF_OFFSET in config:
         cg.add(var.set_offset(config[CONF_OFFSET]))
+    if CONF_MULTIPLIER in config:
+        cg.add(var.set_multiplier(config[CONF_MULTIPLIER]))
     if not config[CONF_IS_ON]:
         cg.add(var.turn_off())
     await groups_to_code(config[CONF_GROUPS], var, var)
