@@ -34,7 +34,7 @@ optional<float> SoundLevelMeter::get_mic_sensitivity_ref() { return this->mic_se
 void SoundLevelMeter::set_offset(optional<float> offset) { this->offset_ = offset; }
 optional<float> SoundLevelMeter::get_offset() { return this->offset_; }
 
-void SoundLevelMeter::set_multiplier(optional<float> offset) { this->multiplier_ = multiplier; }
+void SoundLevelMeter::set_multiplier(optional<float> multiplier) { this->multiplier_ = multiplier; }
 optional<float> SoundLevelMeter::get_multiplier() { return this->multiplier_; }
 
 void SoundLevelMeter::dump_config() {
