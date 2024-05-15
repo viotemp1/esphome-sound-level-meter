@@ -147,7 +147,8 @@ void I2SComponent::setup() {
                              .bits_per_chan = i2s_bits_per_chan_t(0)};
 
   i2s_pin_config_t i2s_pin_config = {
-      .mck_io_num = I2S_PIN_NO_CHANGE,
+      //.mck_io_num = I2S_PIN_NO_CHANGE,
+      .mck_io_num = GPIO_NUM_0,
       .bck_io_num = this->bck_pin_ != nullptr ? this->bck_pin_->get_pin() : I2S_PIN_NO_CHANGE, //this->bck_pin_->get_pin() I2S_PIN_NO_CHANGE
       .ws_io_num = this->ws_pin_->get_pin(),
       .data_out_num = this->dout_pin_ != nullptr ? this->dout_pin_->get_pin() : I2S_PIN_NO_CHANGE,
