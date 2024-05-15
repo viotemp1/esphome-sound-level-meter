@@ -56,6 +56,7 @@ class SoundLevelMeter : public Component {
   optional<float> mic_sensitivity_{};
   optional<float> mic_sensitivity_ref_{};
   optional<float> offset_{};
+  optional<float> multiplier_{};
   std::queue<std::function<void()>> defer_queue_;
   std::mutex defer_mutex_;
   uint32_t update_interval_{60000};
