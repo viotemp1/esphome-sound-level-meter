@@ -134,7 +134,7 @@ CONFIG_SCHEMA = (
             cv.Optional(CONF_MIC_SENSITIVITY): cv.decibel,
             cv.Optional(CONF_MIC_SENSITIVITY_REF): cv.decibel,
             cv.Optional(CONF_OFFSET): cv.decibel,
-            cv.Optional(CONF_MULTIPLIER): cv.multiplier,
+            cv.Optional(CONF_MULTIPLIER): cv.decibel,
             cv.Required(CONF_GROUPS): [CONFIG_GROUP_SCHEMA]
         }
     )
