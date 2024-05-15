@@ -34,6 +34,9 @@ optional<float> SoundLevelMeter::get_mic_sensitivity_ref() { return this->mic_se
 void SoundLevelMeter::set_offset(optional<float> offset) { this->offset_ = offset; }
 optional<float> SoundLevelMeter::get_offset() { return this->offset_; }
 
+void SoundLevelMeter::set_multiplier(optional<float> offset) { this->multiplier_ = multiplier; }
+optional<float> SoundLevelMeter::get_multiplier() { return this->multiplier_; }
+
 void SoundLevelMeter::dump_config() {
   ESP_LOGCONFIG(TAG, "Sound Level Meter:");
   ESP_LOGCONFIG(TAG, "  Buffer Size: %u (samples)", this->buffer_size_);
@@ -205,6 +208,9 @@ float SoundLevelMeterSensor::adjust_dB(float dB, bool is_rms) {
 
   if (this->parent_->get_offset().has_value())
     dB += *this->parent_->get_offset();
+
+  if (this->parent_->get_multiplier().has_value())
+    dB *= *this->parent_->get_multiplier();
 
   return dB;
 }
