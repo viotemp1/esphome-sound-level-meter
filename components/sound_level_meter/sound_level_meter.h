@@ -35,6 +35,8 @@ class SoundLevelMeter : public Component {
   optional<float> get_mic_sensitivity_ref();
   void set_offset(optional<float> offset);
   optional<float> get_offset();
+  void set_multiplier(optional<float> multiplier);
+  optional<float> get_multiplier();
   virtual void setup() override;
   virtual void loop() override;
   virtual void dump_config() override;
